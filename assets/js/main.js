@@ -1,6 +1,6 @@
 /* Alessio Paradisi — site script
-   2. Card thumbnails: plots for the two main projects (mass–radius from a TOV solve, E/A(ρ, Δ)),
-      small live simulations for the others (Ising, scalar field, paths on a circle, …)
+   2. Card thumbnails: the thesis E/A(ρ, Δ) curves, and small live simulations for the others
+      (VMC walkers, Ising, scalar field, paths on a circle, …)
    3. Project drawer with hash routing (#p/<id>)
    4. NSmatter charts and the Fermi-sea toy
 */
@@ -50,69 +50,6 @@
     label(ctx, yl, l - w * 0.02, top + h * 0.06, palette.ink3, h, "right");
   }
 
-  // ---- mass–radius sequence from VMC energies (data: [[rho, E/N, err], ...]) ----
-  // Fit E/N = a u^α + b u^β (u = ρ/0.16) by weighted least squares on an (α, β) grid,
-  // build P(ε) with c_s² ≤ 1, and integrate the TOV equations (G = c = 1, km).
-  function tovCurve(data) {
-    const r0 = 0.16, mn = 939.565, MeVfm3 = 1.3234e-6, Msun = 1.4766;
-    let best = null;
-    for (let al = 0.2; al <= 1.2; al += 0.02) for (let be = al + 0.3; be <= 4; be += 0.02) {
-      let s11 = 0, s12 = 0, s22 = 0, y1 = 0, y2 = 0;
-      for (const [rho, E, e] of data) {
-        const wgt = 1 / (e * e), f1 = (rho / r0) ** al, f2 = (rho / r0) ** be;
-        s11 += wgt * f1 * f1; s12 += wgt * f1 * f2; s22 += wgt * f2 * f2; y1 += wgt * f1 * E; y2 += wgt * f2 * E;
-      }
-      const det = s11 * s22 - s12 * s12, a = (y1 * s22 - y2 * s12) / det, b = (s11 * y2 - s12 * y1) / det;
-      let chi = 0;
-      for (const [rho, E, e] of data) chi += ((a * (rho / r0) ** al + b * (rho / r0) ** be - E) / e) ** 2;
-      if (!best || chi < best.chi) best = { chi, a, b, al, be };
-    }
-    const { a, b, al, be } = best;
-    const n = 500, rhos = [], P = [], eps = [];
-    for (let i = 0; i < n; i++) {
-      const rho = 0.004 * Math.pow(3 / 0.004, i / (n - 1)), u = rho / r0;
-      rhos.push(rho);
-      eps.push(rho * (mn + a * u ** al + b * u ** be));
-      P.push((rho * rho * (a * al * u ** (al - 1) + b * be * u ** (be - 1))) / r0);
-    }
-    for (let i = 1; i < n; i++) {
-      // causal continuation: once dP/dε would exceed 1, continue with c_s² = 1
-      if (P[i] - P[i - 1] > eps[i] - eps[i - 1]) P[i] = P[i - 1] + (eps[i] - eps[i - 1]);
-    }
-    const lP = P.map(Math.log), lE = eps.map(Math.log), Pmin = P[0];
-    const epsOf = (p) => {
-      if (p <= Pmin) return 0;
-      const x = Math.log(p);
-      let lo = 0, hi = n - 1;
-      while (hi - lo > 1) { const mid = (lo + hi) >> 1; lP[mid] > x ? (hi = mid) : (lo = mid); }
-      const f = (x - lP[lo]) / (lP[hi] - lP[lo]);
-      return Math.exp(lE[lo] + f * (lE[hi] - lE[lo]));
-    };
-    const rhs = (r, m, p) => {
-      const e = epsOf(p) * MeVfm3, pp = p * MeVfm3;
-      return [4 * Math.PI * r * r * e, -((e + pp) * (m + 4 * Math.PI * r * r * r * pp)) / (r * (r - 2 * m)) / MeVfm3];
-    };
-    const out = [];
-    let mMax = 0;
-    for (let k = 0; k < 60; k++) {
-      const rc = 0.12 * Math.pow(2.6 / 0.12, k / 59);
-      const ic = rhos.findIndex((x) => x >= rc);
-      let r = 1e-3, p = P[ic], m = (4 / 3) * Math.PI * r ** 3 * eps[ic] * MeVfm3;
-      const dr = 0.01;
-      while (p > Pmin && r < 40) {
-        const k1 = rhs(r, m, p), k2 = rhs(r + dr / 2, m + (dr / 2) * k1[0], p + (dr / 2) * k1[1]);
-        const k3 = rhs(r + dr / 2, m + (dr / 2) * k2[0], p + (dr / 2) * k2[1]), k4 = rhs(r + dr, m + dr * k3[0], p + dr * k3[1]);
-        m += (dr / 6) * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]);
-        p += (dr / 6) * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1]);
-        r += dr;
-      }
-      const M = m / Msun;
-      out.push([r, M]);
-      if (M > mMax) mMax = M; else if (M < 0.985 * mMax) break;
-    }
-    return out;
-  }
-
   /* ------------------------------------------------------------------ */
   /* 2. Thumbnail simulations                                            */
   /* ------------------------------------------------------------------ */
@@ -147,36 +84,52 @@
       };
     },
 
-    // NSmatter: mass–radius curves of pure-neutron-matter stars for the three NV2+3 models.
-    // E/N = a u^α + b u^β fitted to the VMC energies, P = ρ² d(E/N)/dρ, c_s² capped at 1, TOV solved here.
-    massradius() {
-      const N = window.SITE_DATA && window.SITE_DATA.nsmatter;
-      const curves = N ? [[N.eosIa, palette.down], [N.eosIIb, palette.accent], [N.eos3N, palette.up]].map(([d, c]) => ({ pts: tovCurve(d), color: c })) : [];
-      let t = 0;
+    // 14 neutrons with spins wandering in a periodic box (illustration of VMC walkers)
+    walkers() {
+      const N = 14, pts = [];
+      for (let i = 0; i < N; i++) pts.push({ x: Math.random(), y: Math.random(), s: i < 7 ? 1 : -1, a: Math.random() * 6.28 });
+      const d0 = 0.12;
       return {
-        step() { t += 0.004; },
-        draw(ctx, w, h) {
-          // no crust here, so the low-mass ends hook back; show M ≥ 0.6 M_sun, where the sequences are recognizable
-          const xmin = 7.8, xmax = 14, ymin = 0.6, ymax = 2.55;
-          const l = w * 0.09, r = w * 0.96, top = h * 0.1, bot = h * 0.84;
-          const X = (v) => l + ((v - xmin) / (xmax - xmin)) * (r - l), Y = (v) => bot - ((v - ymin) / (ymax - ymin)) * (bot - top);
-          axes(ctx, l, r, top, bot, "R", "M", w, h);
-          // 2 M_sun reference line
-          ctx.setLineDash([2, 4]); ctx.strokeStyle = palette.ink3; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(l, Y(2)); ctx.lineTo(r, Y(2)); ctx.stroke(); ctx.setLineDash([]);
-          label(ctx, "2 M⊙", l + w * 0.015, Y(2) - h * 0.03, palette.ink3, h);
-          ctx.save(); ctx.beginPath(); ctx.rect(l, top - 4, r - l, bot - top + 4); ctx.clip();
-          const u = 0.5 - 0.5 * Math.cos(t);
-          for (const c of curves) {
-            ctx.strokeStyle = c.color; ctx.lineWidth = 1.8; ctx.beginPath();
-            c.pts.forEach(([R, M], k) => (k ? ctx.lineTo(X(R), Y(M)) : ctx.moveTo(X(R), Y(M))));
-            ctx.stroke();
-            // a star sliding along its sequence as the central density changes
-            const vis = c.pts.filter((q) => q[1] >= ymin + 0.05);
-            const p = vis[Math.round(u * (vis.length - 1))];
-            if (p) { ctx.fillStyle = c.color; ctx.beginPath(); ctx.arc(X(p[0]), Y(p[1]), Math.max(2.5, h * 0.022), 0, Math.PI * 2); ctx.fill(); }
+        step() {
+          for (const p of pts) {
+            const nx = (p.x + (Math.random() - 0.5) * 0.02 + 1) % 1;
+            const ny = (p.y + (Math.random() - 0.5) * 0.02 + 1) % 1;
+            let ok = true;
+            for (const q of pts) {
+              if (q === p) continue;
+              let dx = Math.abs(nx - q.x); dx = Math.min(dx, 1 - dx);
+              let dy = Math.abs(ny - q.y); dy = Math.min(dy, 1 - dy);
+              if (dx * dx + dy * dy < d0 * d0) { ok = false; break; }
+            }
+            if (ok) { p.x = nx; p.y = ny; }
+            p.a += (Math.random() - 0.5) * 0.08;
           }
-          ctx.restore();
+        },
+        draw(ctx, w, h) {
+          const L = h * 0.78, ox = (w - L) / 2, oy = (h - L) / 2;
+          // periodic images
+          ctx.strokeStyle = palette.rule; ctx.lineWidth = 1;
+          for (let i = -2; i <= 2; i++) for (let j = -1; j <= 1; j++) {
+            if (!i && !j) continue;
+            ctx.strokeRect(ox + i * L, oy + j * L, L, L);
+          }
+          ctx.strokeStyle = palette.ink3; ctx.strokeRect(ox, oy, L, L);
+          for (let i = -2; i <= 2; i++) for (let j = -1; j <= 1; j++) {
+            const img = i || j;
+            for (const p of pts) {
+              const x = ox + (p.x + i) * L, y = oy + (p.y + j) * L;
+              if (x < -10 || x > w + 10 || y < -10 || y > h + 10) continue;
+              const col = p.s > 0 ? palette.up : palette.down;
+              ctx.globalAlpha = img ? 0.18 : 1;
+              ctx.fillStyle = col;
+              ctx.beginPath(); ctx.arc(x, y, L * 0.03, 0, Math.PI * 2); ctx.fill();
+              // spin arrow, slightly wobbling (continuous spinors)
+              const len = L * 0.07, ang = (p.s > 0 ? -Math.PI / 2 : Math.PI / 2) + 0.35 * Math.sin(p.a);
+              ctx.strokeStyle = col; ctx.lineWidth = 1.4;
+              ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(ang) * len, y + Math.sin(ang) * len); ctx.stroke();
+            }
+          }
+          ctx.globalAlpha = 1;
         },
       };
     },
