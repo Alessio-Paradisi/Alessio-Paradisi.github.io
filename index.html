@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- KaTeX: LaTeX-quality math rendering -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611091041">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611091050">
 </head>
 <body>
   <a class="skip" href="#projects">Skip to projects</a>
@@ -248,9 +248,9 @@
 
       <details>
         <summary>5 · Optimizing the wavefunction</summary>
-        <p>The parameters are optimized by <em>stochastic reconfiguration</em>, the natural gradient of the energy. With the log-derivatives \(O_k = \partial \ln\Psi / \partial p_k\) sampled together with the energy, and \(\delta A = A - \langle A \rangle\):</p>
-        <div class="eq">\[ \begin{aligned} g_k &amp;= 2\,\mathrm{Re}\,\langle \delta O_k^{*}\, \delta E_L \rangle, \qquad S_{kl} = \mathrm{Re}\,\langle \delta O_k^{*}\, \delta O_l \rangle, \\ p &amp;\;\to\; p - \eta\, (S + \epsilon\,\mathbb{1})^{-1}\, g \end{aligned} \]</div>
-        <p>The metric \(S\) measures each step by how much the wavefunction changes rather than how much the parameters change, which makes the update equivalent to imaginary-time evolution projected onto the variational manifold. Each run has an optimization phase, where the variance of \(E_L\) is watched for convergence, and an evaluation phase with frozen parameters, which gives the quoted energy and its error.</p>
+        <p>The parameters are optimized by <em>stochastic reconfiguration</em>, the natural gradient of the energy. With the log-derivatives \(D_k = \partial \ln\Psi / \partial a_k\) sampled together with the energy, and \(\delta A = A - \langle A \rangle\):</p>
+        <div class="eq">\[ \begin{aligned} g_k &amp;= 2\,\mathrm{Re}\,\langle \delta D_k^{*}\, \delta E_L \rangle, \qquad \mathcal{S}_{kl} = \mathrm{Re}\,\langle \delta D_k^{*}\, \delta D_l \rangle, \\ a &amp;\;\to\; a - \eta\, (\mathcal{S} + \epsilon\,\mathbb{1})^{-1}\, g \end{aligned} \]</div>
+        <p>The metric \(\mathcal{S}\) measures each step by how much the wavefunction changes rather than how much the parameters change, which makes the update equivalent to imaginary-time evolution projected onto the variational manifold. Each run has an optimization phase, where the variance of \(E_L\) is watched for convergence, and an evaluation phase with frozen parameters, which gives the quoted energy and its error.</p>
       </details>
 
       <details>
@@ -460,9 +460,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" defer></script>
-  <script src="assets/js/data.js?v=202611091041" defer></script>
-  <script src="assets/js/charts.js?v=202611091041" defer></script>
-  <script src="assets/js/figures.js?v=202611091041" defer></script>
-  <script src="assets/js/main.js?v=202611091041" defer></script>
+  <script src="assets/js/data.js?v=202611091050" defer></script>
+  <script src="assets/js/charts.js?v=202611091050" defer></script>
+  <script src="assets/js/figures.js?v=202611091050" defer></script>
+  <script src="assets/js/main.js?v=202611091050" defer></script>
 </body>
 </html>
