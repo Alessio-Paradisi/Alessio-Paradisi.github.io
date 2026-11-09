@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alessio Paradisi</title>
+  <meta name="description" content="Alessio Paradisi, theoretical physicist (M.Sc., University of Pisa). Projects and results.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!-- Link previews (email, chat, LinkedIn…). Absolute URLs assume the GitHub Pages address. -->
+  <link rel="canonical" href="https://alessio-paradisi.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alessio Paradisi">
+  <meta property="og:description" content="Neutron matter, Monte Carlo methods and other projects, with interactive results.">
+  <meta property="og:url" content="https://alessio-paradisi.github.io/">
+  <meta property="og:image" content="https://alessio-paradisi.github.io/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alessio Paradisi: projects and results">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- KaTeX: LaTeX-quality math rendering -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <!-- Frosted bar: slides in once the header has scrolled away -->
+  <nav class="topbar" aria-label="Site">
+    <div class="wrap topbar-inner">
+      <a class="topbar-name" href="#top">Alessio Paradisi</a>
+      <ul class="topbar-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="assets/Alessio_Paradisi_CV.pdf">CV</a></li>
+        <li><a href="https://github.com/Alessio-Paradisi" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.4a3 3 0 0 0-.8-2.3c2.8-.3 5.8-1.4 5.8-6.2A4.8 4.8 0 0 0 18.7 6a4.5 4.5 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.4 5.6 2.7 5.6 2.7A4.5 4.5 0 0 0 5.5 6a4.8 4.8 0 0 0-1.3 3.3c0 4.8 3 5.9 5.8 6.2a3 3 0 0 0-.8 2.3V22"/></svg></a></li>
+        <li><a href="#contact" data-email="a.paradisi2|studenti.unipi.it" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap hero-inner">
+      <h1>Alessio Paradisi</h1>
+
+      <ul class="links">
+        <li><a href="#contact" data-email="a.paradisi2|studenti.unipi.it"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg><span data-email-text>a.paradisi2 [at] studenti.unipi.it</span></a></li>
+        <li><a href="https://github.com/Alessio-Paradisi" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.4a3 3 0 0 0-.8-2.3c2.8-.3 5.8-1.4 5.8-6.2A4.8 4.8 0 0 0 18.7 6a4.5 4.5 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.4 5.6 2.7 5.6 2.7A4.5 4.5 0 0 0 5.5 6a4.8 4.8 0 0 0-1.3 3.3c0 4.8 3 5.9 5.8 6.2a3 3 0 0 0-.8 2.3V22"/></svg>github.com/Alessio-Paradisi</a></li>
+        <li><a href="assets/Alessio_Paradisi_CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z M14 2v6h6 M9 13h8 M9 17h8"/></svg>CV (PDF)</a></li>
+      </ul>
+
+      <p class="now"><span class="now-tag">Now</span> Computing the neutron-matter equation of state and neutron-star properties with <a href="#p/nsmatter">NSmatter</a>, my variational Monte Carlo code for nuclear and neutron-star matter.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="projects" class="wrap">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">Select a project to read the method, results and figures.</p>
+
+      <div class="grid">
+        <a class="card card-lg" href="#p/nsmatter" data-project="nsmatter">
+          <canvas class="thumb" data-sim="walkers" aria-hidden="true"></canvas>
+          <div class="card-body">
+            <p class="meta">Ongoing · 2026</p>
+            <h3>NSmatter: Monte Carlo for neutron-star matter</h3>
+            <p>A variational Monte Carlo code in JAX for nuclear and neutron matter with local chiral interactions.</p>
+          </div>
+        </a>
+
+        <a class="card card-lg" href="#p/thesis" data-project="thesis">
+          <canvas class="thumb" data-sim="fermi" aria-hidden="true"></canvas>
+          <div class="card-body">
+            <p class="meta">M.Sc. thesis · 2026</p>
+            <h3>Spin-polarized neutron matter</h3>
+            <p>Brueckner–Hartree–Fock calculation of neutron matter at different spin polarizations with a chiral interaction.</p>
+          </div>
+        </a>
+
+        <a class="card" href="#p/scalar" data-project="scalar">
+          <canvas class="thumb" data-sim="scalar" aria-hidden="true"></canvas>
+          <div class="card-body">
+            <p class="meta">Numerical Lab III · 2026</p>
+            <h3>Thermodynamics of a free scalar field in 1+1 dimensions</h3>
+            <p>Lattice Monte Carlo of the energy density and trace anomaly across temperatures and lattice spacings.</p>
+          </div>
+        </a>
+
+        <a class="card" href="#p/circle" data-project="circle">
+          <canvas class="thumb" data-sim="circle" aria-hidden="true"></canvas>
+          <div class="card-body">
+            <p class="meta">Numerical Lab II · 2025</p>
+            <h3>Topology of a quantum particle on a circle</h3>
+            <p>Path-integral Monte Carlo in Euclidean time, checked against analytic limits.</p>
+          </div>
+        </a>
+
+        <a class="card" href="#p/ising" data-project="ising">
+          <canvas class="thumb" data-sim="ising" aria-hidden="true"></canvas>
+          <div class="card-body">
+            <p class="meta">Numerical Lab I · 2025</p>
+            <h3>Critical properties of the 2D Ising model</h3>
+            <p>Wolff cluster updates and finite-size scaling for the critical exponents.</p>
+          </div>
+        </a>
+
+        <a class="card" href="#p/running" data-project="running">
+          <canvas class="thumb" data-sim="running" aria-hidden="true"></canvas>
+          <div class="card-body">
+            <p class="meta">Course projects · 2025</p>
+            <h3>Running couplings in QED and QCD</h3>
+            <p>The QED running coupling, the Uehling potential and asymptotic freedom from the one-loop β function.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap footer">
+    <p>© 2026 Alessio Paradisi · <a href="#contact" data-email="a.paradisi2|studenti.unipi.it">Email</a> · <a href="https://github.com/Alessio-Paradisi">GitHub</a></p>
+  </footer>
+
+  <!-- Drawer -->
+  <div class="scrim" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+    <div class="drawer-bar">
+      <button class="close" type="button" aria-label="Close project details">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <!-- ===================== Project details =====================
+       Math is written in LaTeX: \( … \) inline, \[ … \] display; KaTeX renders it when a drawer opens. -->
+
+  <template id="d-thesis">
+    <p class="meta">M.Sc. thesis · University of Pisa · 2025–2026</p>
+    <h2 id="drawer-title">Spin-polarized neutron matter from chiral effective field theory</h2>
+    <p class="byline">Supervisor Prof. Ignazio Bombaci · Co-supervisor Dr. Vishal Parmar</p>
+
+    <h3>The question</h3>
+    <p>Pulsars and magnetars have inferred magnetic fields from \(10^{8}\) up to \(10^{15}\,\mathrm{G}\), and the origin of the strongest ones is not agreed upon. Every neutron carries a magnetic moment, so one possibility is that the dense matter in the star undergoes a spontaneous transition to a spin-polarized, ferromagnetic state.</p>
+    <p>For a free Fermi gas, polarizing always costs kinetic energy (Pauli principle). The nucleon–nucleon force is spin-dependent, though, so the question is whether the interaction can gain more than the kinetic cost.</p>
+    <p>The thesis targets the outer core of the star, \(0.5 \lesssim \rho/\rho_0 \lesssim 2\), modelled as pure neutron matter.</p>
+
+    <h3>Method</h3>
+    <p>The polarization is the imbalance between the two spin populations, each filling its own Fermi sea:</p>
+    <div class="eq">\[ \Delta = \frac{\rho_\uparrow - \rho_\downarrow}{\rho}, \qquad k_F^{\uparrow,\downarrow} = k_F\,(1 \pm \Delta)^{1/3} \]</div>
+    <p>Brueckner–Hartree–Fock resums the strong short-range repulsion into the reaction matrix \(G\), the solution of the Bethe–Goldstone equation, and builds the single-particle potential from it self-consistently:</p>
+    <div class="eq">\[ \begin{aligned} G(W) &amp;= v - v\,\frac{Q}{\varepsilon}\,G(W) \\ U(k) &amp;= \mathrm{Re} \sum_{k' \le k_F} \langle k k' |\, G\big(e(k) + e(k')\big)\, | k k' \rangle_A \\ e(k) &amp;= \frac{\hbar^2 k^2}{2m} + U(k) \end{aligned} \]</div>
+    <ul>
+      <li><strong>System:</strong> pure neutron matter at zero temperature, homogeneous and infinite.</li>
+      <li><strong>Interaction:</strong> the local chiral potential NV2-Ib with explicit \(\Delta(1232)\) isobars, cutoffs \((R_L, R_S) = (1.0, 0.7)\,\mathrm{fm}\), fitted to NN scattering up to \(125\,\mathrm{MeV}\). It had not previously been applied to this system.</li>
+      <li><strong>Self-consistency:</strong> continuous choice for \(U\), with \(U_\uparrow(k)\) and \(U_\downarrow(k)\) iterated until \(|\delta U| &lt; 0.1\,\mathrm{MeV}\).</li>
+      <li><strong>Code:</strong> I extended an inherited Fortran&nbsp;77 BHF code to spin-polarized matter, rewriting most routines: separate spin populations, the three spin-pair channels \(\uparrow\uparrow\), \(\uparrow\downarrow\), \(\downarrow\downarrow\), and their statistical weights.</li>
+      <li><strong>Grid:</strong> \(\rho = 0.10\text{–}0.37\,\mathrm{fm^{-3}}\) (up to \(\approx 2\rho_0\)), \(\Delta = 0\) to \(1\) in steps of \(0.1\), all partial waves up to \(J = 8\).</li>
+    </ul>
+
+    <div class="toy" data-toy="fermi">
+      <div class="toy-head">
+        <p class="toy-title">Play: two Fermi seas</p>
+        <label>Δ = <output>0.00</output><input type="range" min="0" max="1" step="0.01" value="0" aria-label="Spin polarization Δ"></label>
+      </div>
+      <svg viewBox="0 0 320 150" role="img" aria-label="Fermi spheres of spin-up and spin-down neutrons"></svg>
+      <p class="toy-note">Opposite-spin pairs, the only ones that feel the attractive \({}^1S_0\) channel, make up a fraction \(f_{\uparrow\downarrow} = (1-\Delta^2)/2\) of all pairs: <strong data-out="fud">0.50</strong>.</p>
+    </div>
+
+    <h3>Results</h3>
+    <p><strong>Equation of state.</strong> The energy per particle grows with \(\Delta\) at every density, and the potential energy follows a parabolic law across the whole range. At \(\Delta = 0\) the code reproduces Logoteta et al. (same interaction and method) within \(0.2\,\mathrm{MeV}\) up to \(0.37\,\mathrm{fm^{-3}}\).</p>
+    <div class="eq">\[ \frac{E}{A} = \frac{T}{A} + \frac{V}{A}, \qquad \frac{V}{A}(\rho, \Delta) \simeq V_0(\rho) + V_2(\rho)\,\Delta^2 \]</div>
+    <figure class="fig fig-chart" data-figure="thesis-eos"><figcaption>Kinetic, potential and total energy per neutron for \(\Delta = 0, \dots, 1\). Move the slider to follow one polarization, or compare \(\Delta = 0\) with published BHF results; the three-nucleon force (Lovato et al.) adds \(\approx 4\,\mathrm{MeV}\) at \(\rho_0\).</figcaption></figure>
+
+    <p><strong>Spin-resolved potentials.</strong> Polarizing makes the majority less bound and the minority more bound: the single-particle potentials at \(k = 0\) split almost linearly with \(\Delta\), with slopes \(+57.8\,\mathrm{MeV}\) for \(U_\uparrow\) and \(-41.1\,\mathrm{MeV}\) for \(U_\downarrow\).</p>
+
+    <p><strong>Susceptibility.</strong> The curvature of the energy at \(\Delta = 0\) gives the magnetic susceptibility, in units of the free Fermi gas (Pauli paramagnetism):</p>
+    <div class="eq">\[ \begin{gathered} \frac{1}{\chi} \propto \left.\frac{\partial^2 (E/A)}{\partial \Delta^2}\right|_{\Delta=0} \\[4pt] \Longrightarrow\quad \frac{\chi}{\chi_F} = \left[\, 1 + \frac{3\,V_2(\rho)}{\hbar^2 k_F^2/2m} \right]^{-1} \end{gathered} \]</div>
+    <p>A ferromagnetic transition would show up as \(\chi/\chi_F\) diverging and changing sign. Instead it falls from \(\approx 0.45\) to \(\approx 0.34\) between \(0.10\) and \(0.37\,\mathrm{fm^{-3}}\) and stays positive: <em>no ferromagnetic instability up to \(\approx 2\rho_0\)</em>.</p>
+    <figure class="fig fig-chart" data-figure="thesis-chi"><figcaption>\(\chi/\chi_F\) compared with BHF results for older realistic potentials. The dashed curve uses the same definition as those references.</figcaption></figure>
+
+    <p><strong>Why.</strong> Decomposing the interaction energy by partial wave shows the mechanism. Polarizing removes opposite-spin pairs, switching off the attractive singlet \({}^1S_0\) channel, while the repulsive \({}^3P_1\) grows with both polarization and density.</p>
+    <figure class="fig fig-chart" data-figure="thesis-waves"><figcaption>Partial-wave contributions to \(V/A\) versus \(\Delta\). The singlets \({}^1S_0\) and \({}^1D_2\) need opposite-spin pairs and vanish at \(\Delta = 1\).</figcaption></figure>
+
+    <h3>Outlook</h3>
+    <p>Three-nucleon forces, densities beyond \(2\rho_0\), the other members of the NV2 family, and finite temperature.</p>
+    <p class="tags"><span>Fortran 77</span><span>C</span><span>Python</span></p>
+  </template>
+
+  <template id="d-nsmatter">
+    <p class="meta">Ongoing · 2026 · Python + JAX</p>
+    <h2 id="drawer-title">NSmatter: variational Monte Carlo for neutron-star matter</h2>
+    <p class="byline">Personal research code, written from scratch</p>
+
+    <h3>What it is</h3>
+    <p>NSmatter computes the equation of state and the spin–isospin structure of infinite nucleonic matter (pure neutron, symmetric, asymmetric and spin-polarized) with the local chiral Norfolk potentials NV2, with explicit \(\Delta(1232)\), and their three-nucleon partners NV3. It uses the same Hamiltonians as BHF calculations, so the uncertainty from the many-body method can be separated from the spread between interaction models.</p>
+
+    <h3>The physics behind it</h3>
+    <p>Neutron stars hold matter from a fraction of nuclear saturation density (\(\rho_0 \approx 0.16\,\mathrm{fm^{-3}}\)) in the crust to several times \(\rho_0\) in the core. Their mass, radius and tidal deformability are fixed by the equation of state, and by how that matter responds to an excess of neutrons over protons and to spin polarization. NSmatter computes these properties directly from a realistic nuclear Hamiltonian. Open a topic below for details.</p>
+
+    <div class="theory">
+      <details open>
+        <summary>1 · The Hamiltonian: nucleons and chiral forces</summary>
+        <p>Nucleons are treated as non-relativistic point particles with two- and three-body interactions:</p>
+        <div class="eq">\[ H = -\frac{\hbar^2}{2m} \sum_i \nabla_i^2 + \sum_{i&lt;j} v_{ij} + \sum_{i&lt;j&lt;k} V_{ijk} \]</div>
+        <p><strong>Two-body force (NV2).</strong> The Norfolk potentials of Piarulli et al. are derived in chiral effective field theory with explicit \(\Delta(1232)\) isobars: one-pion exchange, \(\Delta\)-full two-pion exchange up to next-to-next-to-leading order, and contact terms up to N3LO. They are local, in coordinate space, and written as a sum of operators:</p>
+        <div class="eq">\[ v_{ij} = \sum_p v^{p}(r_{ij})\, O^{p}_{ij} \]</div>
+        <p>The \(O^p\) are central, spin–isospin (\(\boldsymbol\sigma_i\!\cdot\!\boldsymbol\sigma_j\), \(\boldsymbol\tau_i\!\cdot\!\boldsymbol\tau_j\)), tensor (\(S_{ij}\)), spin-orbit (\(\mathbf L\cdot\mathbf S\)), quadratic in momentum (\(\mathbf L^2\), \((\mathbf L\cdot\mathbf S)^2\)) and charge-dependent operators. Two cutoffs regulate the long range (\(R_L\)) and the short range (\(R_S\)). The four models Ia, Ib, IIa and IIb differ in their cutoffs and in the scattering energy they are fitted to (\(125\) or \(200\,\mathrm{MeV}\)), and the spread between them estimates the uncertainty of the chiral expansion.</p>
+        <p><strong>Three-body force (NV3).</strong> Two-pion exchange through the \(\Delta\) (Fujita–Miyazawa) and the \(c_1\), \(c_3\) couplings, plus the contact terms \(c_D\) and \(c_E\). Neutron matter uses the "starred" fits, which also reproduce the tritium Gamow–Teller matrix element. With the original \(c_E\), pure neutron matter collapses.</p>
+        <p class="muted small">Above about \(2\rho_0\), nucleon pairs have relative momenta beyond the range the force was fitted to, so results there are extrapolations of the interaction rather than predictions.</p>
+      </details>
+
+      <details>
+        <summary>2 · Variational Monte Carlo</summary>
+        <p>For any trial state \(\Psi\), the expectation value of \(H\) is an upper bound to the ground-state energy:</p>
+        <div class="eq">\[ \begin{aligned} E[\Psi] &amp;= \frac{\langle \Psi | H | \Psi \rangle}{\langle \Psi | \Psi \rangle} \\[4pt] &amp;= \frac{\int dX\, |\Psi(X)|^2\, E_L(X)}{\int dX\, |\Psi(X)|^2} \;\ge\; E_0 \\[4pt] E_L(X) &amp;= \frac{(H\Psi)(X)}{\Psi(X)} \end{aligned} \]</div>
+        <p>Here \(X\) collects the positions, spins and isospins of all particles. Configurations are drawn from \(|\Psi|^2\) with the Metropolis algorithm, and the energy is the average of the <em>local energy</em> \(E_L\) over the samples.</p>
+        <ul>
+          <li><strong>No sign problem.</strong> \(|\Psi|^2\) is a positive probability density at any density and composition.</li>
+          <li><strong>Zero-variance property.</strong> The variance of \(E_L\) vanishes for an exact eigenstate, so it measures the quality of the trial state sample by sample.</li>
+          <li><strong>Every operator, exactly.</strong> Because \(E_L\) is evaluated exactly for the given \(\Psi\), VMC can treat \(\mathbf L^2\), \((\mathbf L\cdot\mathbf S)^2\) and the full three-body force, which projector methods such as AFDMC must approximate.</li>
+        </ul>
+        <p>The price is the variational bias: the result is only as good as the trial wavefunction.</p>
+      </details>
+
+      <details>
+        <summary>3 · The trial wavefunction</summary>
+        <div class="eq">\[ \Psi(X) = e^{J(X)} \Big[\, 1 + \sum_{i&lt;j} \sum_p u_p(r_{ij})\, O^p_{ij} \Big]\, \Phi(X) \]</div>
+        <ul>
+          <li><strong>\(\Phi\)</strong> is a Slater determinant of plane waves, the exact ground state of the free Fermi gas in the box. It fixes the nodes and the antisymmetry.</li>
+          <li><strong>\(e^{J}\)</strong> is a central Jastrow factor that keeps nucleons apart where the short-range repulsion acts.</li>
+          <li><strong>Operator correlations</strong> \(u_p(r)\, O^p\) build in the spin–isospin structure of the force. Without them, the tensor force averages to exactly zero in a closed-shell determinant: it binds only through tensor correlations, the same ones that give the deuteron its D-state.</li>
+        </ul>
+        <p>Each correlation function is expanded on a smooth basis that is linear in the few dozen variational parameters \(a_m\):</p>
+        <div class="eq">\[ u(r) = (1 - x^2)^3 \sum_m a_m\, x^{2m}, \qquad x = r/r_c \]</div>
+        <p>It vanishes at the cutoff together with its first two derivatives, so no hidden delta functions appear in the kinetic energy.</p>
+      </details>
+
+      <details>
+        <summary>4 · Spin and isospin as coordinates</summary>
+        <p>Rather than storing a vector over all \(2^N\) spin states, as Green's function Monte Carlo does, the wavefunction is evaluated configuration by configuration, so the cost grows only polynomially with \(N\). Isospin labels stay fixed, since the Hamiltonian conserves the numbers of protons and neutrons. Each spin is a <em>continuous spinor</em> on the unit sphere of \(\mathbb{C}^2\), sampled together with the positions and moved by random \(SU(2)\) rotations.</p>
+        <p>Continuous spinors are needed because the tensor and spin-orbit forces do not conserve the total spin projection. A correlated state has components in every \(S_z\) sector, and a walker with discrete spins could land where the determinant vanishes. The spin–isospin operators act as exchanges, so their action on \(\Psi\) is \(\Psi\) evaluated with two spins swapped:</p>
+        <div class="eq">\[ \boldsymbol\sigma_i \cdot \boldsymbol\sigma_j = 2P^{\sigma}_{ij} - 1, \qquad \boldsymbol\tau_i \cdot \boldsymbol\tau_j = 2P^{\tau}_{ij} - 1 \]</div>
+      </details>
+
+      <details>
+        <summary>5 · Optimizing the wavefunction</summary>
+        <p>The parameters are optimized by <em>stochastic reconfiguration</em>, the natural gradient of the energy. With the log-derivatives \(O_k = \partial \ln\Psi / \partial p_k\) sampled together with the energy, and \(\delta A = A - \langle A \rangle\):</p>
+        <div class="eq">\[ \begin{aligned} g_k &amp;= 2\,\mathrm{Re}\,\langle \delta O_k^{*}\, \delta E_L \rangle, \qquad S_{kl} = \mathrm{Re}\,\langle \delta O_k^{*}\, \delta O_l \rangle, \\ p &amp;\;\to\; p - \eta\, (S + \epsilon\,\mathbb{1})^{-1}\, g \end{aligned} \]</div>
+        <p>The metric \(S\) measures each step by how much the wavefunction changes rather than how much the parameters change, which makes the update equivalent to imaginary-time evolution projected onto the variational manifold. Each run has an optimization phase, where the variance of \(E_L\) is watched for convergence, and an evaluation phase with frozen parameters, which gives the quoted energy and its error.</p>
+      </details>
+
+      <details>
+        <summary>6 · Infinite matter in a periodic box</summary>
+        <p>\(N\) nucleons sit in a cubic box of side \(L = (N/\rho)^{1/3}\) with periodic boundary conditions. Near \(\rho_0\) the box is only a few fm across, comparable to the range of the force, so each pair interacts with all periodic images of its partner. Each spin–isospin population fills complete momentum shells (\(1, 7, 19, 27, 33, \dots\) particles), so that the free ground state is unique and keeps the symmetries of the box. The remaining finite-size effects are reduced with a free-gas correction and twist-averaged boundary conditions.</p>
+        <p>Successive Monte Carlo samples are correlated, so errors come from a Flyvbjerg–Petersen blocking analysis: averaging the series in pairs until the error estimate reaches a plateau.</p>
+      </details>
+
+      <details>
+        <summary>7 · From the equation of state to neutron stars</summary>
+        <p>The neutron-matter energies are fitted and the thermodynamics follows from the fit:</p>
+        <div class="eq">\[ \begin{gathered} \frac{E}{N} = a\,u^{\alpha} + b\,u^{\beta}, \qquad u = \frac{\rho}{\rho_0} \\[4pt] P = \rho^2 \frac{d(E/N)}{d\rho}, \qquad c_s^2 = \frac{dP}{d\varepsilon} \end{gathered} \]</div>
+        <p>Where the fit would turn acausal, it is continued with \(c_s^2 = 1\). The Tolman–Oppenheimer–Volkoff equations, with the \(l = 2\) tidal perturbation, then give the mass–radius relation, the maximum mass and the tidal deformability \(\Lambda\). The statistical errors of the energies are carried through to the stars by a parametric bootstrap.</p>
+      </details>
+
+      <details>
+        <summary>8 · Implementation and validation</summary>
+        <p>The code is written in Python with JAX. <code>jit</code> compiles the inner loop for CPU or GPU, <code>vmap</code> runs it over hundreds of walkers at once, and automatic differentiation gives the kinetic energy, the momentum-dependent operators and the optimizer's log-derivatives exactly. Everything runs in double precision. Moving one pair changes only two columns of the Slater matrix, so the ratio \(\Psi'/\Psi\) comes from a rank-2 update in \(O(N^2)\) instead of \(O(N^3)\).</p>
+        <p>In VMC a bug rarely crashes the program: it gives a smooth, plausible and wrong energy, which the variational principle does not flag. So every module was written against a test with an exact answer: the free gas as an exact eigenstate, analytic Hartree–Fock energies, the deuteron and the \({}^1S_0\) scattering length for NV2, and the full \(2^8\)-dimensional spin space of 8 neutrons for the three-body force.</p>
+      </details>
+    </div>
+
+    <h3>Results: pure neutron matter</h3>
+    <p>7 spin-up and 7 spin-down neutrons in a periodic box, 132 walkers, 60 stochastic-reconfiguration iterations and 40 measurements per run, at nine densities from \(0.04\) to \(0.48\,\mathrm{fm^{-3}}\) (three times \(\rho_0\)). Three Norfolk models are computed with their three-body partners (NV2+3-Ia*, -Ib* and -IIb*), and NV2-Ib also with the two-body force alone. Energies are variational upper bounds with statistical errors.</p>
+    <figure class="fig">
+      <img src="assets/fig/nsm-walker.gif" alt="Animation of one Monte Carlo walker: 14 neutrons with spin arrows moving in a periodic box at 0.16 fm^-3." loading="lazy" width="650" height="650" class="fig-narrow">
+      <figcaption>One walker across the 40 measurements at \(0.16\,\mathrm{fm^{-3}}\): 14 neutrons in the periodic box, with arrows showing the direction of each spinor.</figcaption>
+    </figure>
+    <figure class="fig fig-chart" data-figure="nsm-eos"><figcaption>VMC energies per neutron for the three models, the two-body NV2-Ib, the BHF result of my thesis for NV2-Ib, and the free Fermi gas, \(E/N = \tfrac{3}{5}\,\hbar^2 k_F^2/2m\). Hover a point for its value and error, or click a name to hide it.</figcaption></figure>
+    <div class="table-scroll">
+    <table class="data wide">
+      <thead><tr><th>ρ [fm<sup>−3</sup>]</th><th>NV2+3-Ia*</th><th>NV2+3-Ib*</th><th>NV2+3-IIb*</th><th>NV2-Ib</th></tr></thead>
+      <tbody>
+        <tr><td>0.04</td><td>7.52 ± 0.06</td><td>8.42 ± 0.10</td><td>9.03 ± 0.11</td><td>8.32 ± 0.09</td></tr>
+        <tr><td>0.08</td><td>10.94 ± 0.08</td><td>12.52 ± 0.13</td><td>12.90 ± 0.17</td><td>11.75 ± 0.14</td></tr>
+        <tr><td>0.12</td><td>14.69 ± 0.08</td><td>16.93 ± 0.11</td><td>15.67 ± 0.12</td><td>15.11 ± 0.13</td></tr>
+        <tr><td>0.16</td><td>18.69 ± 0.10</td><td>22.53 ± 0.18</td><td>19.80 ± 0.14</td><td>19.11 ± 0.12</td></tr>
+        <tr><td>0.20</td><td>22.88 ± 0.15</td><td>29.09 ± 0.14</td><td>25.07 ± 0.19</td><td>23.76 ± 0.15</td></tr>
+        <tr><td>0.24</td><td>27.15 ± 0.15</td><td>36.65 ± 0.19</td><td>29.03 ± 0.15</td><td>29.47 ± 0.18</td></tr>
+        <tr><td>0.32</td><td>38.01 ± 0.21</td><td>55.87 ± 0.27</td><td>41.41 ± 0.20</td><td>42.17 ± 0.22</td></tr>
+        <tr><td>0.40</td><td>48.81 ± 0.31</td><td>79.50 ± 0.37</td><td>54.21 ± 0.20</td><td>57.55 ± 0.28</td></tr>
+        <tr><td>0.48</td><td>60.27 ± 0.24</td><td>107.37 ± 0.45</td><td>70.02 ± 0.21</td><td>74.28 ± 0.35</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="muted small">Energy per neutron in MeV. The three-body force grows quickly with density and differs strongly between models: at \(0.48\,\mathrm{fm^{-3}}\) it adds \(3.5\), \(16.3\) and \(31.6\,\mathrm{MeV}\) per neutron for Ia*, IIb* and Ib*. Adding spin-orbit correlations to the trial state lowers NV2+3-Ib* at \(0.16\,\mathrm{fm^{-3}}\) from \(22.53\) to \(20.72 \pm 0.16\,\mathrm{MeV}\).</p>
+
+    <p><strong>Where the energy comes from.</strong> At \(0.16\,\mathrm{fm^{-3}}\) the central part of the force gives \(-29.09 \pm 0.18\,\mathrm{MeV}\) and the momentum-dependent (quadratic) terms \(+7.70 \pm 0.06\,\mathrm{MeV}\). With NV3-Ib*, the three-body force adds \(3.43 \pm 0.03\,\mathrm{MeV}\).</p>
+    <figure class="fig fig-chart" data-figure="nsm-decomp"><figcaption>Kinetic energy, total potential energy and the potential split by operator group (two-body NV2-Ib). Click a name to hide or show it.</figcaption></figure>
+
+    <p><strong>Structure.</strong> The pair distribution shows the correlation hole, and the spin correlation \(\langle \boldsymbol\sigma_i\cdot\boldsymbol\sigma_j \rangle\) approaches \(-3\) at short distance, where close neutron pairs are in the spin singlet. Switch the axis to \(k_F r\) and the curves at different densities nearly collapse.</p>
+    <figure class="fig fig-chart" data-figure="nsm-structure"><figcaption>\(g_{nn}(r)\) and \(\langle \boldsymbol\sigma_i\cdot\boldsymbol\sigma_j \rangle(r)\) for \(\rho = 0.04\text{–}0.24\,\mathrm{fm^{-3}}\). In units of \(1/k_F\), the dashed curve is the free Fermi gas, \(1 - \tfrac{1}{2}\,[3 j_1(k_F r)/k_F r]^2\).</figcaption></figure>
+
+    <h3>Neutron stars</h3>
+    <p>Each model's fit, joined to the SLy crust below \(0.08\,\mathrm{fm^{-3}}\), goes through the TOV equations:</p>
+    <div class="table-scroll">
+    <table class="data wide">
+      <thead><tr><th>model</th><th>M<sub>max</sub> [M<sub>⊙</sub>]</th><th>R<sub>1.4</sub> [km]</th><th>Λ<sub>1.4</sub></th></tr></thead>
+      <tbody>
+        <tr><td>NV2+3-Ia*</td><td>1.53 ± 0.03</td><td>9.82 ± 0.12</td><td>68 ± 8</td></tr>
+        <tr><td>NV2+3-Ib*</td><td>2.27 ± 0.02</td><td>13.15 ± 0.01</td><td>590 ± 4</td></tr>
+        <tr><td>NV2+3-IIb*</td><td>1.83 ± 0.02</td><td>11.19 ± 0.03</td><td>193 ± 4</td></tr>
+        <tr><td>NV2-Ib <span class="muted">2N only</span></td><td>1.92 ± 0.02</td><td>11.63 ± 0.03</td><td>257 ± 5</td></tr>
+        <tr class="total"><td>combined</td><td>1.87 ± 0.65</td><td>11.4 ± 2.3</td><td>284 ± 297</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The combined row is the mean of the three NV2+3 models with the full error budget in quadrature. Statistical errors are negligible. The largest terms are the spread between interaction models (\(\pm 0.37\,M_\odot\) on \(M_{\max}\), \(\pm 1.7\,\mathrm{km}\) on \(R_{1.4}\)) and the many-body method, estimated as the difference from AFDMC fits for the same models (Lovato et al.): AFDMC lies \(3.5\text{–}4.2\,\mathrm{MeV}\) per neutron lower at \(\rho_0\), and shifts \(R_{1.4}\) by up to \(1.2\,\mathrm{km}\). The form of the fit and the crust add up to \(0.85\) and \(0.42\,\mathrm{km}\).</p>
+    <p class="muted small">Pure neutron matter in the core (no protons), 14 neutrons, no finite-size correction. Above \(0.48\,\mathrm{fm^{-3}}\), the largest computed density, the equation of state is the fit's extrapolation, continued with \(c_s^2 = 1\) where it would turn acausal.</p>
+    <p class="tags"><span>Python</span><span>JAX</span><span>NumPy / SciPy</span><span>uv</span></p>
+  </template>
+
+  <template id="d-scalar">
+    <p class="meta">Numerical Lab III · 2026 · C, Python</p>
+    <h2 id="drawer-title">Thermodynamics of a free scalar field in 1+1 dimensions</h2>
+    <h3>What it is</h3>
+    <p>A lattice Monte Carlo study of a free neutral scalar field in two space-time dimensions. I computed the internal energy density \(\varepsilon/T^2\) and the trace of the energy–momentum tensor \((\varepsilon - P)/T^2\), both refining the lattice at fixed physical volume and scanning the temperature, then compared them with the exact continuum results.</p>
+    <h3>Method</h3>
+    <p>On the lattice, with \(\hat\phi\) and \(\hat m = am\) in lattice units and \(S_n\) the sum of the nearest neighbours of site \(n\), the action and the heat-bath distribution of each site are:</p>
+    <div class="eq">\[ \begin{gathered} S_L = \frac{1}{2} \sum_n \Big[ (\hat m^2 + 2D)\, \hat\phi_n^2 - 2 \hat\phi_n S_n \Big] \\[4pt] \hat\phi_n \sim \mathcal{N}\!\left( \mu = \frac{S_n}{\hat m^2 + 2D},\; \sigma^2 = \frac{1}{\hat m^2 + 2D} \right) \end{gathered} \]</div>
+    <ul>
+      <li><strong>Lattice:</strong> Euclidean space-time lattice with temperature \(T = 1/(aN_t)\). The energy comes from an anisotropic discretization, the trace from the derivative with respect to the lattice spacing.</li>
+      <li><strong>Updates:</strong> 20% heat-bath (exact Gaussian sampling of each site given its neighbours) and 80% microcanonical (reflection \(\hat\phi_n \to 2\mu - \hat\phi_n\), which leaves the action unchanged and decorrelates faster). I proved irreducibility, aperiodicity and detailed balance.</li>
+      <li><strong>Renormalization:</strong> each observable is subtracted with a \(T \simeq 0\) run on a lattice with a long time direction.</li>
+      <li><strong>Continuum limit:</strong> at \(m/T = 1\) with \(N_t = 4, \dots, 10\) and \(N_s/N_t = 4, 6, 8\), extrapolated in \(1/N_t^2\).</li>
+    </ul>
+    <h3>Results</h3>
+    <p>At fixed physical volume the data are linear in \(1/N_t^2\) and extrapolate toward the exact continuum values at \(T = m\), with finite-volume effects clearly visible for the smallest box:</p>
+    <div class="eq">\[ \frac{\varepsilon_R}{T^2} = 0.406, \qquad \frac{f_R}{T^2} = -0.219 \]</div>
+    <p>In the temperature scan, \(\varepsilon/T^2\) rises toward the massless limit \(\pi/6\), while the trace anomaly peaks near \(T/m \approx 0.8\text{–}1.0\), the crossover where the mass stops mattering.</p>
+    <figure class="fig fig-chart" data-figure="scalar"><figcaption>Temperature scans for \(N_t = 4, 6, 8\) at \(N_s/N_t = 5\). Coarser lattices (smaller \(N_t\)) sit above at high \(T/m\): discretization errors.</figcaption></figure>
+    <p>Integrating the trace anomaly gives the pressure:</p>
+    <div class="eq">\[ \left.\frac{P(T)}{T^2}\right|_R = \int_0^{T/m} d\!\left(\frac{T'}{m}\right) \frac{m}{T'}\, \left.\frac{\varepsilon - P}{T'^2}\right|_R \]</div>
+    <p>After continuum extrapolation this gives \(P/T^2 = 0.3748 \pm 0.0026\), \(3.2\sigma\) above the exact \(0.3665\). The residual discretization errors and the 15-point trapezoidal integration both push the value up, and more data points at larger \(N_t\) would be needed to remove the bias.</p>
+    <p class="tags"><span>C</span><span>Python</span></p>
+  </template>
+
+  <template id="d-circle">
+    <p class="meta">Numerical Lab II · 2025 · C, Python</p>
+    <h2 id="drawer-title">Topology of a quantum particle on a circle</h2>
+    <h3>What it is</h3>
+    <p>A quantum particle on a circle is the simplest system with non-trivial topology: Euclidean paths are classified by how many times they wind around the circle. This connects to my B.Sc. thesis, <em>Quantum Mechanics of a Particle on a Circle</em> (supervised by Prof. Claudio Bonati), on the effect of non-trivial topology on the energy spectrum.</p>
+    <div class="eq">\[ \begin{gathered} Q = \frac{1}{2\pi} \int_0^{\beta\hbar} \dot\phi(\tau)\, d\tau \in \mathbb{Z} \\[4pt] \chi(\beta) = \left.\frac{\partial^2 F}{\partial \theta^2}\right|_{\theta=0} = \frac{\langle Q^2 \rangle_{\theta=0}}{\beta} \end{gathered} \]</div>
+    <p>The observable is the mean squared winding number \(\langle Q^2 \rangle\), which gives the topological susceptibility at \(\theta = 0\). It can be sampled directly, even though the \(\theta\)-term itself would make the Euclidean action complex. In the two limits the prediction is:</p>
+    <div class="eq">\[ \langle Q^2 \rangle_{\theta=0} \simeq \begin{cases} \dfrac{\beta\hbar^2}{4\pi^2 m R^2}, &amp; \tfrac{\beta\hbar^2}{mR^2} \gg 1 \\[2ex] 2\,e^{-\frac{m (2\pi R)^2}{2\beta\hbar^2}}, &amp; \tfrac{\beta\hbar^2}{mR^2} \ll 1 \end{cases} \]</div>
+    <h3>Method</h3>
+    <ul>
+      <li><strong>Discretization:</strong> paths on \(N_t\) Euclidean time slices, with the signed shortest distance on the circle so that the winding number is well defined.</li>
+      <li><strong>Updates:</strong> local Metropolis moves of maximum size \(1/2\) (in units of the circumference). I proved irreducibility, aperiodicity and detailed balance.</li>
+      <li><strong>Errors:</strong> block jackknife with automatic detection of the plateau in block size.</li>
+      <li><strong>Runs:</strong> a low-temperature continuum limit (\(\beta' = \beta\hbar^2/4\pi^2 mR^2 = 2\), \(N_t = 25, \dots, 325\)) and a high-temperature scan (\(N_t = 20\), \(\beta'\) from \(2.0\) down to \(0.22\)).</li>
+    </ul>
+    <h3>Results</h3>
+    <p><strong>Low temperature.</strong> \(\langle Q^2 \rangle\) converges to the predicted value \(2\) as the lattice spacing goes to zero. The statistical error grows exponentially with \(N_t\), because local updates almost never change the winding sector. This is topological freezing, and the fitted rate is of the order of the simple estimate \(e^{-N_t/16}\).</p>
+    <p><strong>High temperature.</strong> The data trend toward the asymptotic form \(2e^{-1/(2\beta')}\). The ratio to it rises from \(0.71\) at \(\beta' = 0.35\) to \(0.84\) at \(\beta' = 0.22\), as expected: higher winding sectors and discretization effects still contribute at the temperatures simulated.</p>
+    <figure class="fig fig-chart" data-figure="circle"><figcaption>The temperature scan at \(N_t = 20\), the continuum limit at \(\beta' = 2\) (\(N_t = 25, \dots, 325\)), and the exponential growth of the error that signals topological freezing.</figcaption></figure>
+    <p class="tags"><span>C</span><span>Python</span></p>
+  </template>
+
+  <template id="d-ising">
+    <p class="meta">Numerical Lab I · 2025 · C, Python</p>
+    <h2 id="drawer-title">Critical properties of the 2D Ising model</h2>
+    <h3>What it is</h3>
+    <p>A Monte Carlo study of the critical point of the two-dimensional Ising model: determine \(\beta_c\), extract the exponents \(\nu\) and \(\gamma\), and test the finite-size scaling hypothesis by data collapse.</p>
+    <div class="eq">\[ \begin{gathered} E[\{S\}] = -J \sum_{\langle x, y \rangle} S_x S_y \\[4pt] \chi'(\beta, L) = L^{\gamma/\nu}\, \chi_2\!\big( (\beta - \beta_c)\, L^{1/\nu} \big) + \dots \end{gathered} \]</div>
+    <h3>Method</h3>
+    <ul>
+      <li><strong>Algorithm:</strong> Wolff single-cluster updates with \(P_{\text{add}} = 1 - e^{-2\beta J}\), which flip whole correlated regions and beat critical slowing down. With this choice every cluster flip is accepted and detailed balance holds by construction. I also proved irreducibility and aperiodicity.</li>
+      <li><strong>Runs:</strong> square lattices with \(L = 20, \dots, 160\) and periodic boundaries, scanning 40 values of \(\beta\) around the pseudo-critical point, with \(1.0\text{–}1.6 \times 10^6\) cluster updates per run.</li>
+      <li><strong>Observables:</strong> \(\langle |m| \rangle\), the susceptibilities \(\chi\) and \(\chi'\), and the Binder cumulant \(U = \langle m^4 \rangle / \langle m^2 \rangle^2\). Errors come from binning and block jackknife.</li>
+      <li><strong>Analysis:</strong> parabolic fits to the \(\chi'\) peaks give \(\beta_{pc}(L)\) and \(\chi'_{\max}(L)\), which are fitted with the scaling laws below while varying the smallest lattice included.</li>
+    </ul>
+    <div class="eq">\[ \begin{gathered} \beta_{pc}(L) = \beta_c + x_0\, L^{-1/\nu} \\[4pt] \chi'_{\max}(L) = y_0\, L^{\gamma/\nu} + c_0 \end{gathered} \]</div>
+
+    <div class="toy toy-ising" data-toy="ising">
+      <div class="toy-head">
+        <p class="toy-title">Play: a live 2D Ising model</p>
+        <div class="seg" role="tablist" aria-label="Update algorithm">
+          <button type="button" data-alg="metropolis" class="on">Metropolis</button>
+          <button type="button" data-alg="wolff">Wolff clusters</button>
+        </div>
+      </div>
+      <div class="ising-body">
+        <div class="ising-lattice">
+          <canvas class="ising-grid" width="64" height="64" aria-label="Spin configuration of a 64 by 64 Ising lattice"></canvas>
+          <p class="ising-legend"><span><i class="sw-up"></i>spin up</span><span><i class="sw-dn"></i>spin down</span><span class="only-wolff"><i class="sw-cl"></i>cluster just flipped</span></p>
+        </div>
+        <div class="ising-side">
+          <p class="ising-phase" data-out="phase">critical point</p>
+          <label class="fig-slider"><span>temperature T / J = <output>2.27</output></span><input type="range" min="1.5" max="3.5" step="0.01" value="2.27" aria-label="Temperature"></label>
+          <div class="ising-presets" role="group" aria-label="Temperature presets">
+            <button type="button" data-temp="1.8">cold · 1.8</button>
+            <button type="button" data-temp="2.269">T<sub>c</sub> · 2.27</button>
+            <button type="button" data-temp="3.2">hot · 3.2</button>
+          </div>
+          <div class="seg seg-sm" role="group" aria-label="Speed">
+            <button type="button" data-speed="slow" class="on">slow</button>
+            <button type="button" data-speed="normal">normal</button>
+            <button type="button" data-speed="fast">fast</button>
+          </div>
+          <dl class="ising-stats">
+            <div><dt>magnetization |m|</dt><dd data-out="m">–</dd></div>
+            <div><dt>Monte Carlo time</dt><dd data-out="t">0 sweeps</dd></div>
+          </dl>
+          <div class="ising-actions">
+            <button type="button" class="ising-play" aria-pressed="true">Pause</button>
+            <button type="button" class="ising-reset">Randomize</button>
+          </div>
+        </div>
+      </div>
+      <div class="ising-trace-wrap">
+        <canvas class="ising-trace" aria-label="Magnetization versus Monte Carlo time"></canvas>
+        <p class="ising-trace-cap">|m| over the last updates · dashed: exact value in the infinite system (Onsager), zero above \(T_c\)</p>
+      </div>
+      <p class="toy-note"><strong>What to watch.</strong> Cold: starting from random spins, domains grow and merge (coarsening, which takes a while) until one colour takes over and |m| approaches the dashed line. Hot: salt-and-pepper noise, |m| stays near 0. At \(T_c = 2/\ln(1+\sqrt2) \approx 2.269\): patches of every size form and dissolve, and |m| wanders. Compare the two algorithms there. Metropolis flips one spin at a time and the big patches barely move. Wolff grows a cluster of aligned spins (shown in blue) and flips it all at once, so the picture decorrelates in a few steps.</p>
+    </div>
+    <h3>Results</h3>
+    <figure class="fig fig-chart" data-figure="ising"><figcaption>The subtracted susceptibility and the Binder cumulant for \(L = 20, \dots, 160\). Switch to <em>finite-size scaling</em> to rescale the same data with the exact exponents (\(\beta_c = 0.440687\), \(\nu = 1\), \(\gamma/\nu = 7/4\)): all sizes collapse onto one curve.</figcaption></figure>
+    <table class="data">
+      <thead><tr><th>quantity</th><th>this work</th><th>exact</th></tr></thead>
+      <tbody>
+        <tr><td>β<sub>c</sub></td><td>0.44096 ± 0.00028</td><td>0.440687</td></tr>
+        <tr><td>ν</td><td>1.080 ± 0.075</td><td>1</td></tr>
+        <tr><td>γ/ν</td><td>1.7476 ± 0.0082</td><td>1.75</td></tr>
+      </tbody>
+    </table>
+    <p>All three agree with the exact values within errors, which include statistical and systematic contributions: \(\gamma/\nu\) within \(0.3\sigma\), \(\beta_c\) at about \(1\sigma\) and \(\nu\) at about \(1.1\sigma\).</p>
+    <p class="muted small">The animation on the card is a live Metropolis simulation at the critical temperature, running in your browser.</p>
+    <p class="tags"><span>C</span><span>Python</span></p>
+  </template>
+
+  <template id="d-running">
+    <p class="meta">Course projects · 2025</p>
+    <h2 id="drawer-title">Running couplings in QED and QCD</h2>
+    <h3>What it is</h3>
+    <p>Analytic derivations of how coupling constants change with the energy scale, in the two gauge theories of the Standard Model where the effect is most striking.</p>
+    <h3>Method</h3>
+    <ul>
+      <li>Derived the QED running coupling and the Uehling potential from vacuum polarization.</li>
+      <li>Derived the one-loop QCD β function, which shows asymptotic freedom.</li>
+      <li>Dimensional regularization and the renormalization group.</li>
+    </ul>
+    <p>At leading order, for \(Q^2 \gg m^2\) in QED and with \(n_f\) quark flavours in QCD, the results take the standard form:</p>
+    <div class="eq">\[ \begin{gathered} \alpha(Q^2) \simeq \frac{\alpha}{1 - \dfrac{\alpha}{3\pi} \ln\dfrac{Q^2}{m^2}} \\[8pt] \alpha_s(Q^2) = \frac{\alpha_s(\mu^2)}{1 + \dfrac{\alpha_s(\mu^2)}{4\pi}\, \beta_0 \ln\dfrac{Q^2}{\mu^2}} \\[6pt] \beta_0 = 11 - \tfrac{2}{3}\, n_f \end{gathered} \]</div>
+    <p class="muted small">The card sketch is schematic: the QED coupling grows slowly with \(Q\), while the QCD coupling decreases.</p>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" defer></script>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/charts.js" defer></script>
+  <script src="assets/js/figures.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
